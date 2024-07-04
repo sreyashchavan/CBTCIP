@@ -13,7 +13,7 @@ public class GUESS {
         for (int round = 1; round <= ROUNDS; round++) {
             System.out.println("Round " + round + " of " + ROUNDS);
             int numberToGuess = random.nextInt(100) + 1;
-            boolean hasGuessedCorrectly = false;
+            boolean correct_guess = false;
 
             for (int attempt = 1; attempt <= max_round; attempt++) {
                 System.out.print("Attempt " + attempt + " of " + max_round + ": Guess the number (1-100): ");
@@ -21,7 +21,7 @@ public class GUESS {
 
                 if (userGuess == numberToGuess) {
                     System.out.println("Congratulations! You've guessed the number.");
-                    hasGuessedCorrectly = true;
+                    correct_guess = true;
                     score += (max_round - attempt + 1) * 10;
                     break;
                 } else if (userGuess < numberToGuess) {
@@ -31,8 +31,8 @@ public class GUESS {
                 }
             }
 
-            if (!hasGuessedCorrectly) {
-                System.out.println("Sorry! You've used all your attempts. The number was: " + numberToGuess);
+            if (!correct_guess) {
+                System.out.println("Sorry! no more attempts. The number was: " + numberToGuess);
             }
 
             System.out.println("Your current score is: " + score);
